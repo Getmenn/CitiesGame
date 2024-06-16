@@ -29,7 +29,7 @@ export const Countdown = ({ initialTime = 120 }: IProps) => {
                 <h3 className="prose-base">Сейчас ваша очередь</h3>
                 <span className="prose-xl font-medium">{new Date(timeLeft * 1000).toISOString().substr(14, 5)}</span>
             </div>
-            <div className="h-2 bg-gray-100 absolute bottom-0 w-full left-0">
+            <div className="h-[5px] bg-gray-100 absolute bottom-0 w-full left-0">
                 <div
                     className="absolute h-full bg-violet-300 rounded-r-lg transition-all duration-1000"
                     style={{ width: `${percentage}%` }}

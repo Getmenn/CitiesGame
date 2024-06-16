@@ -63,5 +63,6 @@ module.exports = {
         'no-unused-expressions': 'off',
         'jsx-a11y/no-noninteractive-element-interactions': 'off',
         'react/button-has-type': 'off',
+        '@typescript-eslint/no-explicit-any': 'off',
     },
 };

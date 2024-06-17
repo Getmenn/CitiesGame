@@ -1,8 +1,13 @@
+'use client'
+
+import { activeCitiesSelector, winnerStatusSelector } from '@/entities/city/model/selectors/selectors';
 import { StartGameBtn } from '@/features/startGameBtn';
+import { useAppSelector } from '@/shared/hooks/useAppSelector';
 
 export const FinalBlock = () => {
-    const winner = false;
-    const lastCity = 'Москва';
+    const activeCities = useAppSelector(activeCitiesSelector)
+    const winner = useAppSelector(winnerStatusSelector)
+    const lastCity = activeCities.at(-1);
 
     return (
         <div className="flex flex-col justify-center items-center gap-8 p-10">
@@ -25,7 +30,8 @@ export const FinalBlock = () => {
                 00:00
             </span>
             <p className="text-center prose-xl w-[353px]">
-                Всего было перечислено городов: 31
+                Всего было перечислено городов: {activeCities.length}
+                {' '}
                 Очень не плохой результат!
             </p>
             <p className="text-center prose-xl">

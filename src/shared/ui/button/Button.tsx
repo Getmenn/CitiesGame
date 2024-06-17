@@ -1,19 +1,19 @@
-import { ButtonHTMLAttributes, ReactNode } from 'react';
+import { ButtonHTMLAttributes, ReactNode, memo } from 'react';
 
-interface IProps extends ButtonHTMLAttributes<HTMLButtonElement>{
+interface IProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: ReactNode,
     icon?: boolean,
     className?: string,
     handleClick?: () => void,
 }
 
-export const Button = ({
+export const Button = memo(({
     children,
     icon = false,
     className,
     handleClick,
     ...otherProps
-}:IProps) => {
+}: IProps) => {
     return (
         <button
             type="button"
@@ -24,7 +24,9 @@ export const Button = ({
                 text-white 
                 w-fit 
                 ${className} 
-                hover:bg-violet-700`
+                hover:bg-violet-700
+                disabled:bg-gray-400
+                `
             }
             onClick={handleClick}
             {...otherProps}
@@ -32,4 +34,4 @@ export const Button = ({
             {children}
         </button>
     );
-};
+});

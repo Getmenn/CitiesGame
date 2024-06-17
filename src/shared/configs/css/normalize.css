@@ -100,7 +100,10 @@ body {
   /**
       Унифицированный интерлиньяж
      */
-  line-height: 1.5;
+}
+
+p, span, input, div, section, textarea, h3{
+  line-height: 150% !important;
 }
 
 /**

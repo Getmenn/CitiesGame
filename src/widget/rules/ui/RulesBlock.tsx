@@ -8,16 +8,16 @@ export const RulesBlock = () => {
             </div>
             <div className="p-[24px] flex flex-col gap-6">
                 <p className="prose-sm">Цель: Назвать как можно больше реальных городов.</p>
-                <ul className="list-disc pl-4">
-                    <li className="prose-sm">
+                <ul className="list-disc pl-5">
+                    <li className="prose-sm leading-[150%]">
                         Запрещается повторение городов.
                     </li>
-                    <li className="prose-sm">
+                    <li className="prose-sm leading-[150%]">
                         Названий городов на твердый “ъ” и мягкий “ъ” знак нет.
                         Из-за этого бы пропускаем эту букву и игрок должен назвать город на букву
                         стоящую перед ъ или ь знаком.
                     </li>
-                    <li className="prose-sm">
+                    <li className="prose-sm leading-[150%]">
                         Каждому игроку дается 2 минуты на размышления,
                         если спустя это время игрок не вводит слово он считается проигравшим
                     </li>

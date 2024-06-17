@@ -8,7 +8,7 @@ import { useThunk } from '@/shared/hooks/useThunk/useThunk';
 import { activeCitiesSelector } from '../model/selectors/selectors';
 import { aiFunction } from '../model/thunk/AiFunction';
 
-const stylesPlayer = 'rounded-[12px_12px_0_12px] bg-violet-500 text-white col-[2] ml-auto';
+const stylesPlayer = 'rounded-[12px_12px_0_12px] bg-violet-500 text-white ml-auto';
 const stylesAI = 'rounded-[12px_12px_12px_0] bg-violet-50 mr-auto';
 
 export const PlayField = () => {
@@ -30,12 +30,11 @@ export const PlayField = () => {
     }
 
     return (
-        // <div className="flex flex-col gap-2">
         <div className="w-full grid grid-cols-[1fr_1fr]">
             {activeCities.map((city, index) => (
                 <div
                     key={index}
-                    className={`${index % 2 === 0 ? stylesPlayer : stylesAI} px-5 py-1.5  flex items-center gap-2 h-full w-fit`}
+                    className={`${index % 2 === 0 ? stylesPlayer : stylesAI} col-[1_/_3] px-5 py-1.5 flex items-center gap-2 h-full w-fit `}
                 >
                     <span>{city}</span>
                 </div>

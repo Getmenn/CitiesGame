@@ -30,7 +30,7 @@ export const PlayField = () => {
     }
 
     return (
-        <div className="w-full grid grid-cols-[1fr_1fr]">
+        <div className="w-full grid grid-cols-[1fr_1fr] overflow-y-auto h-full grid-rows-[repeat(6,36px)]">
             {activeCities.map((city, index) => (
                 <div
                     key={index}

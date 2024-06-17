@@ -1,16 +1,16 @@
 'use client';
 
-import { use, useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import { SendIcon } from '@/shared/assets/SendIcon';
 import { useActions } from '@/shared/hooks/useAction/useAction';
 import { useAppSelector } from '@/shared/hooks/useAppSelector';
 import { Button } from '@/shared/ui';
 
+import { cities } from '../mock/mock';
 import { activeCitiesSelector } from '../model/selectors/selectors';
 import { cityActions } from '../model/slice/city';
 import { getCurrentCities } from '../utils/getCurrentCities';
-import { cities } from '../mock/mock';
 import { getLastLetter } from '../utils/getLastLetter';
 
 export const CustomInput = () => {
@@ -30,19 +30,19 @@ export const CustomInput = () => {
     }, [activeCities]);
 
     const handleSendCity = useCallback((newCity: string) => {
-        const chartUpper = newCity.charAt(0).toUpperCase() + newCity.slice(1)
+        const chartUpper = newCity.charAt(0).toUpperCase() + newCity.slice(1);
 
         if (activeCities.length === 0 && cities.includes(chartUpper)) {
             addActiveCity(newCity);
         } else if (activeCities.length === 0) {
-            setError(true)
+            setError(true);
         } else {
-            const currentCities = getCurrentCities({ activeCities })
+            const currentCities = getCurrentCities({ activeCities });
 
             if (currentCities?.includes(chartUpper)) {
                 addActiveCity(newCity);
             } else {
-                setError(true)
+                setError(true);
             }
         }
     }, [activeCities]);
@@ -55,23 +55,23 @@ export const CustomInput = () => {
 
     const getInfoText = useCallback(() => {
         if (error) {
-            return 'Неверное название города'
-        } else if (activeCities.length >= 2) {
-            return `Всего перечислено городов: ${activeCities.length}`
+            return 'Неверное название города';
+        } if (activeCities.length >= 2) {
+            return `Всего перечислено городов: ${activeCities.length}`;
         }
-        return ''
-    }, [activeCities, error])
+        return '';
+    }, [activeCities, error]);
 
     const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setCityInput(e.target.value)
+        setCityInput(e.target.value);
         error && setError(false);
-    }
+    };
 
     const getPlaceholder = useCallback(() => {
         if (activeCities.length === 0) {
-            return 'Напишите любой город, например: Где вы живете?'
+            return 'Напишите любой город, например: Где вы живете?';
         }
-        return `Знаете город на букву “${getLastLetter(activeCities)?.toUpperCase()}”?`
+        return `Знаете город на букву “${getLastLetter(activeCities)?.toUpperCase()}”?`;
     }, [activeCities]);
 
     return (

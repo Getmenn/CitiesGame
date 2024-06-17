@@ -1,4 +1,4 @@
-import { CitySchema } from '@/entities/city';
+import type { CitySchema } from '@/entities/city';
 
 import { createReduxStore } from './createReduxStore';
 

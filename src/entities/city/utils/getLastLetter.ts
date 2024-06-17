@@ -8,5 +8,5 @@ export const getLastLetter = (activeCities: string[]) => {
         lastLetter = lastCity.charAt(lastCity.length - 2);
     }
 
-    return lastLetter
-}
+    return lastLetter;
+};

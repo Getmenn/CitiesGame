@@ -1,17 +1,19 @@
 'use client';
 
-import { useAppSelector } from '@/shared/hooks/useAppSelector';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { activeCitiesSelector } from '../model/selectors/selectors';
+
 import { useActions } from '@/shared/hooks/useAction/useAction';
+import { useAppSelector } from '@/shared/hooks/useAppSelector';
+
+import { activeCitiesSelector } from '../model/selectors/selectors';
 import { cityActions } from '../model/slice/city';
 
 interface IProps {
     initialTime?: number;
 }
 
-export const Countdown = ({ initialTime = 120 }: IProps) => {
+export const Countdown = ({ initialTime = 5 }: IProps) => {
     const [timeLeft, setTimeLeft] = useState(initialTime);
 
     const { push } = useRouter();
@@ -33,13 +35,13 @@ export const Countdown = ({ initialTime = 120 }: IProps) => {
             } else {
                 setWinnerStatus(true);
             }
-            push('/final')
+            push('/final');
         }
-    }, [timeLeft])
+    }, [timeLeft]);
 
     useEffect(() => {
-        setTimeLeft(initialTime)
-    }, [activeCities])
+        setTimeLeft(initialTime);
+    }, [activeCities]);
 
     const widthTimer = (timeLeft / initialTime) * 100;
 

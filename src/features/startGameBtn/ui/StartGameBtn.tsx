@@ -3,9 +3,9 @@
 import { useRouter } from 'next/navigation';
 import { memo } from 'react';
 
-import { Button } from '@/shared/ui';
-import { useActions } from '@/shared/hooks/useAction/useAction';
 import { cityActions } from '@/entities/city';
+import { useActions } from '@/shared/hooks/useAction/useAction';
+import { Button } from '@/shared/ui';
 
 export const StartGameBtn = memo(({ text = 'Начать игру' }: { text?: string }) => {
     const { push } = useRouter();
@@ -14,9 +14,8 @@ export const StartGameBtn = memo(({ text = 'Начать игру' }: { text?: s
     const handleStartGame = () => {
         setWinnerStatus(false);
         setActiveCities([]);
-        push('/game')
+        push('/game');
     };
-
 
     return (
         <Button className="m-auto" onClick={handleStartGame}>

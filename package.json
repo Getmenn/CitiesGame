@@ -1,5 +1,5 @@
 {
-  "name": "efirit",
+  "name": "CitiesGame",
   "version": "0.1.0",
   "private": true,
   "homepage": "https://getmenn.github.io/CitiesGame/",
@@ -8,8 +8,7 @@
     "build": "next build",
     "start": "next start -p 8080",
     "lint": "next lint",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d out"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.5",
@@ -29,7 +28,7 @@
     "@typescript-eslint/eslint-plugin": "^7.13.0",
     "@typescript-eslint/parser": "^7.13.0",
     "autoprefixer": "^10.4.19",
-    "eslint": "latest",
+    "eslint": "^8.57.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-next": "latest",
     "eslint-plugin-import": "^2.29.1",

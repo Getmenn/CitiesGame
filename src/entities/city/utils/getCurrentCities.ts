@@ -8,5 +8,7 @@ interface IProps {
 export const getCurrentCities = ({ activeCities }: IProps) => {
     const lastLetter = getLastLetter(activeCities);
 
-    return cities.filter((city) => city.charAt(0).toLowerCase() === lastLetter);
+    return cities.filter((city) => {
+        return !activeCities.includes(city) && city.charAt(0).toLowerCase() === lastLetter;
+    });
 };

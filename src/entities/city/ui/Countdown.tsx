@@ -13,7 +13,7 @@ interface IProps {
     initialTime?: number;
 }
 
-export const Countdown = ({ initialTime = 5 }: IProps) => {
+export const Countdown = ({ initialTime = 120 }: IProps) => {
     const [timeLeft, setTimeLeft] = useState(initialTime);
 
     const { push } = useRouter();
